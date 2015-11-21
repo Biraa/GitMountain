@@ -5,3 +5,5 @@ package ch.fhnw.oop;
  */
 public class BMountain {
 }
+
+//hallo test
