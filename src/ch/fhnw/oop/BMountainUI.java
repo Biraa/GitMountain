@@ -7,7 +7,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Circle;
 
 public class BMountainUI extends BorderPane {
 
@@ -181,7 +180,7 @@ public class BMountainUI extends BorderPane {
     }
 
     public ImageView addImageView(){
-        Image image = new Image("./ch/fhnw/oop/bmw.jpg");
+        Image image = new Image("ch/fhnw/oop/resources/bmw.jpg");
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(220);
         //imageView.setFitHeight(220);
