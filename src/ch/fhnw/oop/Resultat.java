@@ -1,37 +1,38 @@
 package ch.fhnw.oop;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 /**
  * Created by Biraveen on 23.11.2015.
  */
 public class Resultat {
-    private final StringProperty id                 = new SimpleStringProperty();
+    private final IntegerProperty bergId            = new SimpleIntegerProperty();
     private final StringProperty name               = new SimpleStringProperty();
-    private final StringProperty height             = new SimpleStringProperty();
+    private final DoubleProperty height             = new SimpleDoubleProperty();
     private final StringProperty type               = new SimpleStringProperty();
     private final StringProperty region             = new SimpleStringProperty();
+    private final StringProperty cantons            = new SimpleStringProperty();
     private final StringProperty range              = new SimpleStringProperty();
-    private final StringProperty isolation          = new SimpleStringProperty();
+    private final DoubleProperty isolation          = new SimpleDoubleProperty();
     private final StringProperty isolationPoint     = new SimpleStringProperty();
-    private final StringProperty prominence         = new SimpleStringProperty();
+    private final DoubleProperty prominence         = new SimpleDoubleProperty();
     private final StringProperty prominencePoint    = new SimpleStringProperty();
     private final StringProperty caption            = new SimpleStringProperty();
 
 
     public Resultat(String[] line) {
-        setId(line[0]);
+        setBergId(Integer.parseInt(line[0]));
         setName(line[1]);
-        setHeight(line[2]);
+        setHeight(Double.parseDouble(line[2]));
         setType(line[3]);
         setRegion(line[4]);
-        setRange(line[5]);
-        setIsolation(line[6]);
-        setIsolationPoint(line[7]);
-        setProminence(line[8]);
-        setIsolationPoint(line[9]);
-        setCaption(line[10]);
+        setCantons(line[5]);
+        setRange(line[6]);
+        setIsolation(Double.parseDouble(line[7]));
+        setIsolationPoint(line[8]);
+        setProminence(Double.parseDouble(line[9]));
+        setProminencePoint(line[10]);
+        setCaption(line[11]);
     }
 
 
@@ -46,26 +47,27 @@ public class Resultat {
 
         Resultat resultat = (Resultat) o;
 
-        return getId().equals(resultat.getId());
+        return getBergId()==(resultat.getBergId());
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return bergId.hashCode();
     }
 
     public String infoAsLine(){
         return String.join("\t",
-                getId(),
+                Integer.toString(getBergId()),
                 getName(),
-                getHeight(),
+                Double.toString(getHeight()),
                 getType(),
                 getRegion(),
+                getCantons(),
                 getRange(),
-                getIsolation(),
+                Double.toString(getIsolation()),
                 getIsolationPoint(),
-                getProminence(),
-                getIsolationPoint(),
+                Double.toString(getProminence()),
+                getProminencePoint(),
                 getCaption()
         );
     }
@@ -79,16 +81,28 @@ public class Resultat {
 
     //Getter Und Setter
 
-    public String getId() {
-        return id.get();
+    public double getIsolation() {
+        return isolation.get();
     }
 
-    public StringProperty idProperty() {
-        return id;
+    public DoubleProperty isolationProperty() {
+        return isolation;
     }
 
-    public void setId(String id) {
-        this.id.set(id);
+    public void setIsolation(double isolation) {
+        this.isolation.set(isolation);
+    }
+
+    public int getBergId() {
+        return bergId.get();
+    }
+
+    public IntegerProperty bergIdProperty() {
+        return bergId;
+    }
+
+    public void setBergId(int bergId) {
+        this.bergId.set(bergId);
     }
 
     public String getName() {
@@ -103,15 +117,15 @@ public class Resultat {
         this.name.set(name);
     }
 
-    public String getHeight() {
+    public double getHeight() {
         return height.get();
     }
 
-    public StringProperty heightProperty() {
+    public DoubleProperty heightProperty() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(double height) {
         this.height.set(height);
     }
 
@@ -127,18 +141,6 @@ public class Resultat {
         this.type.set(type);
     }
 
-    public String getRange() {
-        return range.get();
-    }
-
-    public StringProperty rangeProperty() {
-        return range;
-    }
-
-    public void setRange(String range) {
-        this.range.set(range);
-    }
-
     public String getRegion() {
         return region.get();
     }
@@ -151,16 +153,28 @@ public class Resultat {
         this.region.set(region);
     }
 
-    public String getIsolation() {
-        return isolation.get();
+    public String getCantons() {
+        return cantons.get();
     }
 
-    public StringProperty isolationProperty() {
-        return isolation;
+    public StringProperty cantonsProperty() {
+        return cantons;
     }
 
-    public void setIsolation(String isolation) {
-        this.isolation.set(isolation);
+    public void setCantons(String cantons) {
+        this.cantons.set(cantons);
+    }
+
+    public String getRange() {
+        return range.get();
+    }
+
+    public StringProperty rangeProperty() {
+        return range;
+    }
+
+    public void setRange(String range) {
+        this.range.set(range);
     }
 
     public String getIsolationPoint() {
@@ -175,15 +189,15 @@ public class Resultat {
         this.isolationPoint.set(isolationPoint);
     }
 
-    public String getProminence() {
+    public double getProminence() {
         return prominence.get();
     }
 
-    public StringProperty prominenceProperty() {
+    public DoubleProperty prominenceProperty() {
         return prominence;
     }
 
-    public void setProminence(String prominence) {
+    public void setProminence(double prominence) {
         this.prominence.set(prominence);
     }
 
@@ -210,5 +224,7 @@ public class Resultat {
     public void setCaption(String caption) {
         this.caption.set(caption);
     }
+
+
 }
 

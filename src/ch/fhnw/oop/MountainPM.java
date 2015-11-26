@@ -61,6 +61,23 @@ public class MountainPM {
         }
     }
 
+    public void save() {
+        try (BufferedWriter writer = Files.newBufferedWriter(getPath(FILE_NAME, true))) {
+            writer.write("ID\tName\tGebiet\tKantone\tkmBis\tDominanz\tkanton\tmBis\tScherten\tName\tKantone\tGebiet\tBilbeschreibung");
+            writer.newLine();
+            resulate.stream().forEach(resultat -> {
+                try {
+                    writer.write(resultat.infoAsLine());
+                    writer.newLine();
+                } catch (IOException e) {
+                    throw new IllegalStateException(e);
+                }
+            });
+        } catch (IOException e) {
+            throw new IllegalStateException("save failed");
+        }
+    }
+
 
     public ObservableList<Resultat> getResulate() {
         return resulate;

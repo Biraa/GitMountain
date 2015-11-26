@@ -1,12 +1,15 @@
 package ch.fhnw.oop;
 
 import javafx.collections.FXCollections;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.util.converter.NumberStringConverter;
 
 public class BMountainUI extends BorderPane {
 
@@ -46,12 +49,16 @@ public class BMountainUI extends BorderPane {
     private Label label13;
     private Label label14;
 
+    MountainPM model= new MountainPM();
+    TableView<Resultat> tableView = new TableView<>(model.getResulate());
+
 
     public BMountainUI() {
         initializeControls();
         layoutControls();
         eventEvent();
     }
+
 
     private void initializeControls() {
         button1=new Button("save");
@@ -63,21 +70,21 @@ public class BMountainUI extends BorderPane {
         button7=new Button("7");
 
         textField1=new TextField("Suche");
-        textField2=new TextField("1");
-        textField3=new TextField("2");
-        textField4=new TextField("3");
-        textField5=new TextField("4");
-        textField6=new TextField("5");
-        textField7=new TextField("6");
-        textField8=new TextField("7");
-        textField9=new TextField("8");
-        textField10=new TextField("9");
-        textField11=new TextField("10");
-        textField12=new TextField("11");
+        textField2=new TextField();
+        textField3=new TextField();
+        textField4=new TextField();
+        textField5=new TextField();
+        textField6=new TextField();
+        textField7=new TextField();
+        textField8=new TextField();
+        textField9=new TextField();
+        textField10=new TextField();
+        textField11=new TextField();
+        textField12=new TextField();
 
-        label1=new Label("Alpentürm");
-        label2=new Label("2022.00m");
-        label3=new Label("Alpstein");
+        label1=new Label();
+        label2=new Label();
+        label3=new Label();
         label4=new Label("Name");
         label5=new Label("Dominanz");
         label6=new Label("km bis");
@@ -122,6 +129,7 @@ public class BMountainUI extends BorderPane {
         splitPane.setPrefSize(400,200);
         //splitPane.getItems().setAll(addSLVA(), addGridPane2());
         //splitPane.getItems().setAll(addTableView(), addGridPane2());
+
         splitPane.getItems().setAll(addTableView2(), addGridPane2());
         splitPane.setDividerPositions(0.25);
 
@@ -162,16 +170,19 @@ public class BMountainUI extends BorderPane {
     }
 
     public TableView addTableView2(){
-        MountainPM model= new MountainPM();
-        TableView<Resultat> tableView = new TableView<>(model.getResulate());
 
-        TableColumn<Resultat, String> idCol = new TableColumn<>("id");
+        //MountainPM model= new MountainPM();
+        //TableView<Resultat> tableView = new TableView<>(model.getResulate());
+
+        TableColumn<Resultat, Number> idCol = new TableColumn<>("id");
+        idCol.setCellValueFactory(cell -> cell.getValue().bergIdProperty());
+
         TableColumn<Resultat, String> nameCol = new TableColumn<>("name");
-        TableColumn<Resultat, String> heightCol = new TableColumn<>("Höhe");
-
-        idCol.setCellValueFactory(cell -> cell.getValue().idProperty());
         nameCol.setCellValueFactory(cell -> cell.getValue().nameProperty());
+
+        TableColumn<Resultat, Number> heightCol = new TableColumn<>("Höhe");
         heightCol.setCellValueFactory(cell -> cell.getValue().heightProperty());
+
 
         tableView.getColumns().addAll(idCol, nameCol, heightCol);
 
@@ -255,6 +266,23 @@ public class BMountainUI extends BorderPane {
     }
 
     private void eventEvent(){
+        tableView.setOnMouseClicked(event -> {
+            label1.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().nameProperty());
+            label2.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().heightProperty(), new NumberStringConverter());
+            label3.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().regionProperty());
+            textField2.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().nameProperty());
+            textField3.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().prominenceProperty(), new NumberStringConverter());
+            textField4.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().prominencePointProperty());
+            textField5.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().typeProperty());
+            textField6.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().cantonsProperty());
+            textField7.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().captionProperty());
+            textField8.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().heightProperty(), new NumberStringConverter());
+            textField9.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().isolationProperty(), new NumberStringConverter());
+            textField10.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().isolationPointProperty());
+            textField11.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().regionProperty());
+            textField12.textProperty().bindBidirectional(tableView.getSelectionModel().getSelectedItem().rangeProperty());
 
+        });
     }
+
 }

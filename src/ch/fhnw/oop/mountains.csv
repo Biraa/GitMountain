@@ -1,7 +1,7 @@
 #id;name;height;type;region;cantons;range;isolation;isolationPoint;prominence;prominencePoint;caption
-0;Albis, Bürglen;916.0;Hauptgipfel;Mittelland;;Albiskette;12.0;Wilerberg;376.0;Sihlbrugg Punkt 540;Albiskette vom Uetliberg;
-1;Aletschhorn;4193.0;Hauptgipfel;Wallis;;Aletschgebiet;13.3;Finsteraarhorn;1020.0;Lötschenlücke;Aletschhorn von Süden;
-2;Allalinhorn;4027.0;Nebengipfel;Walliser Alpen;;;2.1;Rimpfischhorn;255.0;Alphubeljoch;Allalinhorn von Nordost;
+0;Albis, Bürglen;916.0;Hauptgipfel;Mittelland;BS;Albiskette;12.0;Wilerberg;376.0;Sihlbrugg Punkt 540;Albiskette vom Uetliberg;
+1;Aletschhorn;4193.0;Hauptgipfel;Wallis;BL;Aletschgebiet;13.3;Finsteraarhorn;1020.0;Lötschenlücke;Aletschhorn von Süden;
+2;Allalinhorn;4027.0;Nebengipfel;Walliser Alpen;GL;;2.1;Rimpfischhorn;255.0;Alphubeljoch;Allalinhorn von Nordost;
 3;Alperschällihorn;3036.0;Hauptgipfel;Adula-Alpen;;Splügener Kalkberge;4.9;Bruschghorn;425.0;Alperschällilücke;Alperschällihorn von Osten;
 4;Alphubel;4206.0;Hauptgipfel;Wallis;;Mischabel-Gruppe;2.1;Täschhorn;359.0;Mischabeljoch;Alphubel vom Allalinhorn;
 5;Altels;3629.0;Nebengipfel;Berner Alpen;;Balmhorngruppe;1.27;Balmhorn;101.0;Punkt 3528 E zum Balmhorn;Altels;
