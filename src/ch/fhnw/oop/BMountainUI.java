@@ -121,7 +121,8 @@ public class BMountainUI extends BorderPane {
         //splitPane.setOrientation(Orientation.HORIZONTAL);
         splitPane.setPrefSize(400,200);
         //splitPane.getItems().setAll(addSLVA(), addGridPane2());
-        splitPane.getItems().setAll(addTableView(), addGridPane2());
+        //splitPane.getItems().setAll(addTableView(), addGridPane2());
+        splitPane.getItems().setAll(addTableView2(), addGridPane2());
         splitPane.setDividerPositions(0.25);
 
         return splitPane;
@@ -158,6 +159,23 @@ public class BMountainUI extends BorderPane {
 
         return table;
 
+    }
+
+    public TableView addTableView2(){
+        MountainPM model= new MountainPM();
+        TableView<Resultat> tableView = new TableView<>(model.getResulate());
+
+        TableColumn<Resultat, String> idCol = new TableColumn<>("id");
+        TableColumn<Resultat, String> nameCol = new TableColumn<>("name");
+        TableColumn<Resultat, String> heightCol = new TableColumn<>("Höhe");
+
+        idCol.setCellValueFactory(cell -> cell.getValue().idProperty());
+        nameCol.setCellValueFactory(cell -> cell.getValue().nameProperty());
+        heightCol.setCellValueFactory(cell -> cell.getValue().heightProperty());
+
+        tableView.getColumns().addAll(idCol, nameCol, heightCol);
+
+        return tableView;
     }
 
 

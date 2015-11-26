@@ -21,9 +21,9 @@ import javafx.collections.ObservableList;
  * Created by Biraveen on 23.11.2015.
  */
 public class MountainPM {
-    private static final String FILE_NAME = "mountain.csv";
+    private static final String FILE_NAME = "mountains.csv";
 
-    private static final String TAB = "\\t";
+    private static final String TAB = ";";
 
     private final ObservableList<Resultat> resulate = FXCollections.observableArrayList();
 
