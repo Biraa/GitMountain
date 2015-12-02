@@ -34,20 +34,6 @@ public class Tabele extends TableView<Resultat> {
 
     }
 
-    private void addNewColum(){
-
-        TableColumn<Resultat, Number> idCol = new TableColumn<>("id");
-        idCol.setCellValueFactory(cell -> cell.getValue().bergIdProperty().add(1));
-
-        TableColumn<Resultat, String> nameCol = new TableColumn<>("name");
-        //nameCol.setCellValueFactory(cell -> cell.getValue().nameProperty());
-
-        TableColumn<Resultat, Number> heightCol = new TableColumn<>("Höhe");
-        //heightCol.setCellValueFactory(cell -> cell.getValue().heightProperty());
-
-        getColumns().addAll(idCol, nameCol, heightCol);
-
-    }
 
     public void select(){
         getSelectionModel().selectedItemProperty().addListener(

@@ -88,8 +88,13 @@ public class MountainPM {
     }
 
     public void add(){
-        //resulate.add();
+        int i = resulate.size();
+        Resultat r = new Resultat();
+        r.setBergId(i);
+        resulate.add(i, r);
     }
+
+
 
 
     //Getter und Setter

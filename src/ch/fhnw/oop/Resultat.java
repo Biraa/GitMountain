@@ -19,6 +19,9 @@ public class Resultat {
     private final StringProperty prominencePoint    = new SimpleStringProperty();
     private final StringProperty caption            = new SimpleStringProperty();
 
+    public Resultat(){
+
+    }
 
     public Resultat(String[] line) {
         setBergId(Integer.parseInt(line[0]));

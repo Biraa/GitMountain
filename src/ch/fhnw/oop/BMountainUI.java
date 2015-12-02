@@ -45,23 +45,22 @@ public class BMountainUI extends BorderPane {
 //    private Label label14;
 
     MountainPM model;
-    Editor edit;
-    //TableView<Resultat> tableView = new TableView<>(model.getResulate());
-
-
+    Editor editor;
+    Tabele tabele;
+    Header header;
 
     public BMountainUI( MountainPM model) {
         this.model = model;
-        //initializeControls();
+        initializeControls();
         layoutControls();
         //eventEvent();
     }
 
-
-        Header header = new Header(this.model);
-        //TableView<Resultat> tableView = new Tabele(this.model);
-        //Editor editor = new Editor(this.model);
-
+    private void initializeControls() {
+        header = new Header(model);
+        tabele = new Tabele(model);
+        editor = new Editor(model);
+    }
 
 //    private void initializeControls() {
 //        button1=new Button("save");
@@ -137,7 +136,7 @@ public class BMountainUI extends BorderPane {
         //splitPane.getItems().setAll(addTableView(), addGridPane2());
 
         //splitPane.getItems().setAll(new Tabele(model), addGridPane2());
-        splitPane.getItems().setAll(new Tabele(model), new Editor(model));
+        splitPane.getItems().setAll(tabele, editor);
         splitPane.setDividerPositions(0.25);
 
         return splitPane;
