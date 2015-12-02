@@ -14,8 +14,8 @@ public class BMountainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent rootPanel = new BMountainUI();
-
+        MountainPM model = new MountainPM();
+        Parent rootPanel = new BMountainUI(model);
         Scene scene = new Scene(rootPanel);
 
         String stylesheet = getClass().getResource("style.css").toExternalForm();

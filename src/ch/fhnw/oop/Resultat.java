@@ -56,7 +56,7 @@ public class Resultat {
     }
 
     public String infoAsLine(){
-        return String.join("\t",
+        return String.join(";",
                 Integer.toString(getBergId()),
                 getName(),
                 Double.toString(getHeight()),

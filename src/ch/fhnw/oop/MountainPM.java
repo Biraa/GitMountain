@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -26,6 +28,9 @@ public class MountainPM {
     private static final String TAB = ";";
 
     private final ObservableList<Resultat> resulate = FXCollections.observableArrayList();
+
+    private final ObjectProperty<Resultat> selectedMountain = new SimpleObjectProperty<>();
+
 
     public MountainPM() {
         resulate.addAll(readFromFile());
@@ -78,9 +83,31 @@ public class MountainPM {
         }
     }
 
+    public void delete(){
+        resulate.remove(selectedMountain.getValue());
+    }
+
+    public void add(){
+        //resulate.add();
+    }
+
+
+    //Getter und Setter
 
     public ObservableList<Resultat> getResulate() {
         return resulate;
+    }
+
+    public Resultat getSelectedMountain() {
+        return selectedMountain.get();
+    }
+
+    public ObjectProperty<Resultat> selectedMountainProperty() {
+        return selectedMountain;
+    }
+
+    public void setSelectedMountain(Resultat selectedMountain) {
+        this.selectedMountain.set(selectedMountain);
     }
 
 }
