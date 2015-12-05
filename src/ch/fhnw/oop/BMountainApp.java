@@ -3,22 +3,22 @@ package ch.fhnw.oop;
 /**
  * Created by Biraveen on 21.11.2015.
  */
+
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class BMountainApp extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
         MountainPM model = new MountainPM();
         Parent rootPanel = new BMountainUI(model);
         Scene scene = new Scene(rootPanel);
 
-        String stylesheet = getClass().getResource("style.css").toExternalForm();
+        String stylesheet = getClass().getResource("resources/style.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);
 
 

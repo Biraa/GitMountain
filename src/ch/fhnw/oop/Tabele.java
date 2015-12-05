@@ -15,7 +15,7 @@ public class Tabele extends TableView<Resultat> {
         makeTableView();
     }
 
-    private void makeTableView(){
+    private void makeTableView() {
 
         setItems(model.getResulate());
 
@@ -30,17 +30,20 @@ public class Tabele extends TableView<Resultat> {
         TableColumn<Resultat, Number> heightCol = new TableColumn<>("Höhe");
         heightCol.setCellValueFactory(cell -> cell.getValue().heightProperty());
 
-        getColumns().addAll(idCol, nameCol, heightCol);
+        TableColumn<Resultat, String> cantonsCol = new TableColumn<>("Kanton");
+        cantonsCol.setCellValueFactory(cell -> cell.getValue().cantonsProperty());
+
+
+        cantonsCol.setCellFactory(cell -> new TabelCell());
+
+        getColumns().addAll(idCol, nameCol, heightCol, cantonsCol);
 
     }
 
 
-    public void select(){
+    public void select() {
         getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldSelection, newSelection) -> model.setSelectedMountain(newSelection));
     }
-
-
-
 
 }

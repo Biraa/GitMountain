@@ -1,7 +1,6 @@
 package ch.fhnw.oop;
 
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -16,25 +15,16 @@ import javafx.util.converter.NumberStringConverter;
  * Created by Biraveen on 29.11.2015.
  */
 public class Editor extends GridPane {
+
     MountainPM model;
 
-    public Editor(MountainPM model){
-        this.model= model;
+    public Editor(MountainPM model) {
+        this.model = model;
         initializeControls();
         addValueChangedListeners();
         makeColumRow();
-
     }
 
-//    private Button button1;
-//    private Button button2;
-//    private Button button3;
-//    private Button button4;
-//    private Button button5;
-//    private Button button6;
-//    private Button button7;
-//
-//    private TextField textField1;
     private TextField textField2;
     private TextField textField3;
     private TextField textField4;
@@ -62,52 +52,49 @@ public class Editor extends GridPane {
     private Label label13;
     private Label label14;
 
-    private void initializeControls() {
-//        button1=new Button("save");
-//        button2=new Button("add");
-//        button3=new Button("delete");
-//        button4=new Button("left");
-//        button5=new Button("right");
-//        button6=new Button("6");
-//        button7=new Button("7");
-//
-//        textField1=new TextField("Suche");
-        textField2=new TextField();
-        textField3=new TextField();
-        textField4=new TextField();
-        textField5=new TextField();
-        textField6=new TextField();
-        textField7=new TextField();
-        textField8=new TextField();
-        textField9=new TextField();
-        textField10=new TextField();
-        textField11=new TextField();
-        textField12=new TextField();
+    private ImageView imageView1;
 
-        label1=new Label();
-        label2=new Label();
-        label3=new Label();
-        label4=new Label("Name");
-        label5=new Label("Dominanz");
-        label6=new Label("km bis");
-        label7=new Label("Typ");
-        label8=new Label("Kantone");
-        label9=new Label("Bildunterschrift");
-        label10=new Label("Höhe");
-        label11=new Label("Scharten");
-        label12=new Label("m bis");
-        label13=new Label("Region");
+    private void initializeControls() {
+
+        textField2 = new TextField();
+        textField3 = new TextField();
+        textField4 = new TextField();
+        textField5 = new TextField();
+        textField6 = new TextField();
+        textField7 = new TextField();
+        textField8 = new TextField();
+        textField9 = new TextField();
+        textField10 = new TextField();
+        textField11 = new TextField();
+        textField12 = new TextField();
+
+        label1 = new Label();
+        label2 = new Label();
+        label3 = new Label();
+        label4 = new Label("Name");
+        label5 = new Label("Dominanz");
+        label6 = new Label("km bis");
+        label7 = new Label("Typ");
+        label8 = new Label("Kantone");
+        label9 = new Label("Bildunterschrift");
+        label10 = new Label("Höhe");
+        label11 = new Label("Scharten");
+        label12 = new Label("m bis");
+        label13 = new Label("Region");
         label14 = new Label("Gebiet");
+
+        imageView1 = new ImageView();
+
 
     }
 
-    public void addValueChangedListeners(){
+    public void addValueChangedListeners() {
         model.selectedMountainProperty().addListener((observableValue, oldSelection, newSelection) -> {
             // unbind von allen Properties auf oldSelection
             //bind von allen Properties auf newSelection
 
             // z.B. für 'name'
-            if(oldSelection != null){
+            if (oldSelection != null) {
                 label1.textProperty().unbindBidirectional(oldSelection.nameProperty());
                 label2.textProperty().unbindBidirectional(oldSelection.heightProperty());
                 label3.textProperty().unbindBidirectional(oldSelection.regionProperty());
@@ -124,9 +111,11 @@ public class Editor extends GridPane {
                 textField11.textProperty().unbindBidirectional(oldSelection.regionProperty());
                 textField12.textProperty().unbindBidirectional(oldSelection.rangeProperty());
 
+                imageView1.imageProperty().unbindBidirectional(oldSelection.image1Property());
+
 
             }
-            if(newSelection != null){
+            if (newSelection != null) {
                 label1.textProperty().bindBidirectional(newSelection.nameProperty());
                 label2.textProperty().bindBidirectional(newSelection.heightProperty(), new NumberStringConverter());
                 label3.textProperty().bindBidirectional(newSelection.regionProperty());
@@ -142,6 +131,8 @@ public class Editor extends GridPane {
                 textField10.textProperty().bindBidirectional(newSelection.isolationPointProperty());
                 textField11.textProperty().bindBidirectional(newSelection.regionProperty());
                 textField12.textProperty().bindBidirectional(newSelection.rangeProperty());
+
+                imageView1.imageProperty().bindBidirectional(newSelection.image1Property());
             }
         });
     }
@@ -182,13 +173,20 @@ public class Editor extends GridPane {
         add(textField11, 3, 9);
         add(textField12, 3, 10);
 
-        add(addImageView(), 3, 0);
+        //add(addImageView(), 3, 0);
+        add(imageView1, 3, 0);
 
         setPadding(new Insets(10, 10, 10, 10));
     }
 
-    public ImageView addImageView(){
-        Image image = new Image("ch/fhnw/oop/resources/bmw.jpg");
+    public ImageView addImageView() {
+        int id;
+        try {
+            id = model.selectedMountainProperty().getValue().getBergId();
+        }catch (NullPointerException e){
+            id=1;
+        }
+        Image image = new Image("ch/fhnw/oop/mountainpictures/"+id+"-1.jpg");
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(220);
         //imageView.setFitHeight(220);
@@ -198,9 +196,16 @@ public class Editor extends GridPane {
         return imageView;
     }
 
-
-
-
-
+//    public ImageView addImageView(MountainPM model) {
+//        //String foto = model.;
+//        Image image = new Image("ch/fhnw/oop/resources/bmw.jpg");
+//        ImageView imageView = new ImageView(image);
+//        imageView.setFitWidth(220);
+//        //imageView.setFitHeight(220);
+//        imageView.setPreserveRatio(true);
+//        //imageView.setCache(true);
+//
+//        return imageView;
+//    }
 
 }

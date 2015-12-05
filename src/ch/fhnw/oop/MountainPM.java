@@ -14,8 +14,6 @@ import java.util.stream.Stream;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -31,11 +29,10 @@ public class MountainPM {
 
     private final ObjectProperty<Resultat> selectedMountain = new SimpleObjectProperty<>();
 
-
     public MountainPM() {
         resulate.addAll(readFromFile());
-    }
 
+    }
 
     private List<Resultat> readFromFile() {
         try (Stream<String> stream = getStreamOfLines(FILE_NAME)) {
@@ -93,9 +90,6 @@ public class MountainPM {
         r.setBergId(i);
         resulate.add(i, r);
     }
-
-
-
 
     //Getter und Setter
 

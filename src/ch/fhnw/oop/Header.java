@@ -23,8 +23,8 @@ public class Header extends GridPane {
 
     private TextField textField1;
 
-    public Header(MountainPM model){
-        this.model=model;
+    public Header(MountainPM model) {
+        this.model = model;
         initializeControls();
         makeColumRow();
         eventEvent();
@@ -42,10 +42,10 @@ public class Header extends GridPane {
         textField1 = new TextField("Suche");
     }
 
-    public void makeColumRow(){
+    public void makeColumRow() {
         ColumnConstraints cc = new ColumnConstraints(); //Spalte
         cc.setHgrow(Priority.ALWAYS);
-        getColumnConstraints().addAll(cc,cc);
+        getColumnConstraints().addAll(cc, cc);
 
         RowConstraints rc = new RowConstraints(); //Zeile
         rc.setVgrow(Priority.ALWAYS);
@@ -55,27 +55,25 @@ public class Header extends GridPane {
         add(addHbox2(), 1, 0);
     }
 
-    public HBox addHbox1(){
+    public HBox addHbox1() {
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(10));
         hBox.setSpacing(5);
-
-        hBox.getChildren().addAll(button1,button2,button3,button4,button5);
+        hBox.getChildren().addAll(button1, button2, button3, button4, button5);
         return hBox;
     }
 
-    public HBox addHbox2(){
+    public HBox addHbox2() {
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(10));
         hBox.setSpacing(5);
         hBox.setAlignment(Pos.BOTTOM_RIGHT);
-
         hBox.getChildren().addAll(textField1);
         return hBox;
     }
 
-    private void eventEvent(){
-       button1.setOnAction(event -> model.save());
+    private void eventEvent() {
+        button1.setOnAction(event -> model.save());
         button3.setOnAction(event -> model.delete());
         button2.setOnAction(event -> model.add());
     }

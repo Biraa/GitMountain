@@ -1,25 +1,29 @@
 package ch.fhnw.oop;
 
 import javafx.beans.property.*;
+import javafx.scene.image.Image;
 
 /**
  * Created by Biraveen on 23.11.2015.
  */
 public class Resultat {
-    private final IntegerProperty bergId            = new SimpleIntegerProperty();
-    private final StringProperty name               = new SimpleStringProperty();
-    private final DoubleProperty height             = new SimpleDoubleProperty();
-    private final StringProperty type               = new SimpleStringProperty();
-    private final StringProperty region             = new SimpleStringProperty();
-    private final StringProperty cantons            = new SimpleStringProperty();
-    private final StringProperty range              = new SimpleStringProperty();
-    private final DoubleProperty isolation          = new SimpleDoubleProperty();
-    private final StringProperty isolationPoint     = new SimpleStringProperty();
-    private final DoubleProperty prominence         = new SimpleDoubleProperty();
-    private final StringProperty prominencePoint    = new SimpleStringProperty();
-    private final StringProperty caption            = new SimpleStringProperty();
+    private final IntegerProperty bergId = new SimpleIntegerProperty();
+    private final StringProperty name = new SimpleStringProperty();
+    private final DoubleProperty height = new SimpleDoubleProperty();
+    private final StringProperty type = new SimpleStringProperty();
+    private final StringProperty region = new SimpleStringProperty();
+    private final StringProperty cantons = new SimpleStringProperty();
+    private final StringProperty range = new SimpleStringProperty();
+    private final DoubleProperty isolation = new SimpleDoubleProperty();
+    private final StringProperty isolationPoint = new SimpleStringProperty();
+    private final DoubleProperty prominence = new SimpleDoubleProperty();
+    private final StringProperty prominencePoint = new SimpleStringProperty();
+    private final StringProperty caption = new SimpleStringProperty();
+    private final StringProperty fotos = new SimpleStringProperty();
 
-    public Resultat(){
+    private final ObjectProperty<Image> image1 = new SimpleObjectProperty<>();
+
+    public Resultat() {
 
     }
 
@@ -36,6 +40,10 @@ public class Resultat {
         setProminence(Double.parseDouble(line[9]));
         setProminencePoint(line[10]);
         setCaption(line[11]);
+        setFotos(line[12]);
+
+        setImage1(new Image("ch/fhnw/oop/mountainpictures/" + getBergId() + "-1.jpg"));
+
     }
 
 
@@ -50,7 +58,7 @@ public class Resultat {
 
         Resultat resultat = (Resultat) o;
 
-        return getBergId()==(resultat.getBergId());
+        return getBergId() == (resultat.getBergId());
     }
 
     @Override
@@ -58,7 +66,7 @@ public class Resultat {
         return bergId.hashCode();
     }
 
-    public String infoAsLine(){
+    public String infoAsLine() {
         return String.join(";",
                 Integer.toString(getBergId()),
                 getName(),
@@ -71,7 +79,8 @@ public class Resultat {
                 getIsolationPoint(),
                 Double.toString(getProminence()),
                 getProminencePoint(),
-                getCaption()
+                getCaption(),
+                getFotos()
         );
     }
 
@@ -226,6 +235,30 @@ public class Resultat {
 
     public void setCaption(String caption) {
         this.caption.set(caption);
+    }
+
+    public String getFotos() {
+        return fotos.get();
+    }
+
+    public StringProperty fotosProperty() {
+        return fotos;
+    }
+
+    public void setFotos(String fotos) {
+        this.fotos.set(fotos);
+    }
+
+    public Image getImage1() {
+        return image1.get();
+    }
+
+    public ObjectProperty<Image> image1Property() {
+        return image1;
+    }
+
+    public void setImage1(Image image1) {
+        this.image1.set(image1);
     }
 
 
