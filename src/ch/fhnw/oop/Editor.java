@@ -22,7 +22,9 @@ public class Editor extends GridPane {
         this.model = model;
         initializeControls();
         addValueChangedListeners();
+        makeRightImageSize();
         makeColumRow();
+
     }
 
     private TextField textField2;
@@ -179,6 +181,11 @@ public class Editor extends GridPane {
         setPadding(new Insets(10, 10, 10, 10));
     }
 
+    public void makeRightImageSize(){
+        imageView1.setFitHeight(300);
+        imageView1.setFitWidth(300);
+        imageView1.isSmooth();
+    }
     public ImageView addImageView() {
         int id;
         try {
@@ -207,5 +214,7 @@ public class Editor extends GridPane {
 //
 //        return imageView;
 //    }
+
+
 
 }
