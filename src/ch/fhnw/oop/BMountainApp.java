@@ -24,10 +24,10 @@ public class BMountainApp extends Application {
 
         primaryStage.setTitle("Mountains");
         primaryStage.setScene(scene);
-        primaryStage.setMinHeight(500);
-        primaryStage.setMinWidth(700);
+        primaryStage.setMinHeight(800);
+        primaryStage.setMinWidth(1000);
 
-        primaryStage.setHeight(700);
+        primaryStage.setHeight(800);
         primaryStage.setWidth(1000);
 
         primaryStage.show();

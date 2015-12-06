@@ -40,7 +40,7 @@ public class Resultat {
         setProminence(Double.parseDouble(line[9]));
         setProminencePoint(line[10]);
         setCaption(line[11]);
-        setFotos(line[12]);
+
 
         setImage1(new Image("ch/fhnw/oop/mountainpictures/" + getBergId() + "-1.jpg"));
 

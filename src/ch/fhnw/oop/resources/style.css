@@ -1,0 +1,4 @@
+.label{
+    -fx-min-width: 80px;
+    -fx-max-width: 100px;
+}

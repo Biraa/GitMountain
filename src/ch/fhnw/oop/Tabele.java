@@ -46,4 +46,8 @@ public class Tabele extends TableView<Resultat> {
                 (observable, oldSelection, newSelection) -> model.setSelectedMountain(newSelection));
     }
 
+    @Override
+    public void scrollTo(Resultat object) {
+        super.scrollTo(model.getResulate().size());
+    }
 }

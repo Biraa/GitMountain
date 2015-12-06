@@ -185,6 +185,7 @@ public class Editor extends GridPane {
         imageView1.setFitHeight(300);
         imageView1.setFitWidth(300);
         imageView1.isSmooth();
+
     }
     public ImageView addImageView() {
         int id;
