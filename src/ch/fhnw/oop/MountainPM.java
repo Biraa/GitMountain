@@ -16,6 +16,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 
 /**
  * Created by Biraveen on 23.11.2015.
@@ -28,6 +29,10 @@ public class MountainPM {
     private final ObservableList<Resultat> resulate = FXCollections.observableArrayList();
 
     private final ObjectProperty<Resultat> selectedMountain = new SimpleObjectProperty<>();
+
+    //neue Liste
+
+    FilteredList<Resultat> filteredData = new FilteredList<>(getResulate(), p -> true);
 
     public MountainPM() {
         resulate.addAll(readFromFile());
@@ -80,15 +85,31 @@ public class MountainPM {
         }
     }
 
-    public void delete(){
+    public void delete() {
         resulate.remove(selectedMountain.getValue());
     }
 
-    public void add(){
+    public void add() {
         int i = resulate.size();
         Resultat r = new Resultat();
         r.setBergId(i);
         resulate.add(i, r);
+    }
+
+    public void setFilterString(String newValue) {
+        filteredData.setPredicate(mountain -> {
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+            String lowerCaseFilter = newValue.toLowerCase();
+
+            if (mountain.getName().toLowerCase().contains(lowerCaseFilter)) {
+                System.out.println(mountain.getName());
+                return true;
+            } else {
+                return false;
+            }
+        });
     }
 
     //Getter und Setter
@@ -107,6 +128,14 @@ public class MountainPM {
 
     public void setSelectedMountain(Resultat selectedMountain) {
         this.selectedMountain.set(selectedMountain);
+    }
+
+    public FilteredList<Resultat> getFilteredData() {
+        return filteredData;
+    }
+
+    public void setFilteredData(FilteredList<Resultat> filteredData) {
+        this.filteredData = filteredData;
     }
 
 }

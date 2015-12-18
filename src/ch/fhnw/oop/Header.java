@@ -1,5 +1,7 @@
 package ch.fhnw.oop;
 
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -23,9 +25,11 @@ public class Header extends GridPane {
 
     private TextField textField1;
 
+
     public Header(MountainPM model) {
         this.model = model;
         initializeControls();
+        initializeFilter();
         makeColumRow();
         eventEvent();
     }
@@ -34,13 +38,25 @@ public class Header extends GridPane {
         button1 = new Button("save");
         button2 = new Button("add");
         button3 = new Button("delete");
-        button4 = new Button("left");
-        button5 = new Button("right");
+        button4 = new Button("Undo");
+        button5 = new Button("Redo");
         button6 = new Button("6");
         button7 = new Button("7");
 
         textField1 = new TextField("Suche");
+
+
     }
+
+    private void initializeFilter(){
+
+        textField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            model.setFilterString(newValue);
+        });
+
+    }
+
+
 
     public void makeColumRow() {
         ColumnConstraints cc = new ColumnConstraints(); //Spalte

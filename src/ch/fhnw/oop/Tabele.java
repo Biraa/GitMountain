@@ -15,9 +15,13 @@ public class Tabele extends TableView<Resultat> {
         makeTableView();
     }
 
+
+
     private void makeTableView() {
 
-        setItems(model.getResulate());
+        //setItems(model.getResulate());
+
+        setItems(model.getFilteredData());
 
         //TableView<Resultat> tableView = new TableView<>(model.getResulate()); ES IST REDUNDANT WEIL TABELE VOM TABLEVIEW ERBT!!!
 
