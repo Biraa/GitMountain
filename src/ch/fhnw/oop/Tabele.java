@@ -1,5 +1,6 @@
 package ch.fhnw.oop;
 
+import javafx.collections.transformation.SortedList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -16,12 +17,12 @@ public class Tabele extends TableView<Resultat> {
     }
 
 
-
     private void makeTableView() {
 
         //setItems(model.getResulate());
 
-        setItems(model.getFilteredData());
+        //setItems(model.getFilteredData());
+
 
         //TableView<Resultat> tableView = new TableView<>(model.getResulate()); ES IST REDUNDANT WEIL TABELE VOM TABLEVIEW ERBT!!!
 
@@ -42,13 +43,45 @@ public class Tabele extends TableView<Resultat> {
 
         getColumns().addAll(idCol, nameCol, heightCol, cantonsCol);
 
+        SortedList<Resultat> sortedList = new SortedList<>(model.getFilteredData());
+        sortedList.comparatorProperty().bind(comparatorProperty());
+
+        setItems(sortedList);
+
     }
 
 
     public void select() {
         getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldSelection, newSelection) -> model.setSelectedMountain(newSelection));
+
+
+        getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldSelection, newSelection) -> {
+                    try {
+                        model.setSelectedMountainId(newSelection.getBergId());
+                    } catch (NullPointerException e) {
+
+                    }
+                });
     }
+
+//    public void select() {
+//        getSelectionModel().selectedItemProperty().addListener(
+//                (observable, oldSelection, newSelection) -> model.setSelectedMountain(newSelection));
+//
+//
+//        getSelectionModel().selectedItemProperty().addListener(
+//                (observable, oldSelection, newSelection) -> {
+//                    if (newSelection == null) {
+//                        model.setSelectedMountainId(1);
+//                    } else {
+//                        model.setSelectedMountainId(newSelection.getBergId());
+//                    }
+//                }
+//        );
+//    }
+
 
     @Override
     public void scrollTo(Resultat object) {

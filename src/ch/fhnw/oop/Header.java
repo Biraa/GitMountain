@@ -32,6 +32,7 @@ public class Header extends GridPane {
         initializeFilter();
         makeColumRow();
         eventEvent();
+        addBindings();
     }
 
     private void initializeControls() {
@@ -92,6 +93,13 @@ public class Header extends GridPane {
         button1.setOnAction(event -> model.save());
         button3.setOnAction(event -> model.delete());
         button2.setOnAction(event -> model.add());
+        //UndoRedo
+        button4.setOnAction(event -> model.undo());
+        button5.setOnAction(event -> model.redo());
     }
 
+    public void addBindings() {
+        button4.disableProperty().bind(model.undoDisabledProperty());
+        button5.disableProperty().bind(model.redoDisabledProperty());
+    }
 }

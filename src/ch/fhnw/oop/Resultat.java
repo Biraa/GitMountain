@@ -24,7 +24,7 @@ public class Resultat {
     private final ObjectProperty<Image> image1 = new SimpleObjectProperty<>();
 
     public Resultat() {
-
+        setName("");
     }
 
     public Resultat(String[] line) {
