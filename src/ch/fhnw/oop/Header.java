@@ -1,12 +1,18 @@
 package ch.fhnw.oop;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+
 
 /**
  * Created by Biraveen on 01.12.2015.
@@ -21,7 +27,16 @@ public class Header extends GridPane {
     private Button button4;
     private Button button5;
     private Button button6;
-    private Button button7;
+
+
+    Image icon1;
+    Image icon2;
+    Image icon3;
+    Image icon4;
+    Image icon5;
+    Image icon6;
+
+
 
     private TextField textField1;
 
@@ -36,13 +51,43 @@ public class Header extends GridPane {
     }
 
     private void initializeControls() {
-        button1 = new Button("save");
-        button2 = new Button("add");
-        button3 = new Button("delete");
-        button4 = new Button("Undo");
-        button5 = new Button("Redo");
-        button6 = new Button("6");
-        button7 = new Button("7");
+        icon1 = new Image("ch/fhnw/oop/icons/save.png");
+        ImageView imageView1 = new ImageView(icon1);
+        button1 = new Button("",imageView1);
+        button1.setId("save");
+        button1.setTooltip(new Tooltip("save"));
+
+        icon2 = new Image("ch/fhnw/oop/icons/add.png");
+        ImageView imageView2 = new ImageView(icon2);
+        button2 = new Button("",imageView2);
+        button2.setId("add");
+        button2.setTooltip(new Tooltip("add"));
+
+        icon3 = new Image("ch/fhnw/oop/icons/delete.png");
+        ImageView imageView3 = new ImageView(icon3);
+        button3 = new Button("",imageView3);
+        button3.setId("delete");
+        button3.setTooltip(new Tooltip("delete"));
+
+        icon4 = new Image("ch/fhnw/oop/icons/undo.png");
+        ImageView imageView4 = new ImageView(icon4);
+        button4 = new Button("",imageView4);
+        button4.setId("undo");
+        button4.setTooltip(new Tooltip("undo"));
+
+        icon5 = new Image("ch/fhnw/oop/icons/redo.png");
+        ImageView imageView5 = new ImageView(icon5);
+        button5 = new Button("",imageView5);
+        button5.setId("redo");
+        button5.setTooltip(new Tooltip("redo"));
+
+        icon6 = new Image("ch/fhnw/oop/icons/maps.png");
+        ImageView imageView6 = new ImageView(icon6);
+        imageView6.setFitHeight(48);
+        imageView6.setFitWidth(53);
+        button6 = new Button("",imageView6);
+        button6.setId("maps");
+        button6.setTooltip(new Tooltip("Google Maps"));
 
         textField1 = new TextField("Suche");
 
@@ -76,7 +121,7 @@ public class Header extends GridPane {
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(10));
         hBox.setSpacing(5);
-        hBox.getChildren().addAll(button1, button2, button3, button4, button5);
+        hBox.getChildren().addAll(button1, button2, button3, button4, button5, button6);
         return hBox;
     }
 
@@ -96,6 +141,26 @@ public class Header extends GridPane {
         //UndoRedo
         button4.setOnAction(event -> model.undo());
         button5.setOnAction(event -> model.redo());
+        //Google Maps
+        button6.setOnAction(e -> {
+
+            String name = model.getSelectedMountain().getName();
+
+            final WebView browser = new WebView();
+            final WebEngine webEngine = browser.getEngine();
+            webEngine.load("https://www.google.ch/maps/search/"+name);
+
+            StackPane secondaryLayout = new StackPane();
+            secondaryLayout.getChildren().add(browser);
+
+            Scene secondScene = new Scene(secondaryLayout, 1000, 600);
+
+            Stage secondStage = new Stage();
+            secondStage.setTitle("Second Stage");
+            secondStage.setScene(secondScene);
+
+            secondStage.show();
+        });
     }
 
     public void addBindings() {

@@ -25,6 +25,16 @@ public class Resultat {
 
     public Resultat() {
         setName("");
+        setType("");
+        setRegion("");
+        setCantons("");
+        setRange("");
+        setIsolationPoint("");
+        setProminencePoint("");
+        setCaption("");
+        setFotos("");
+
+
     }
 
     public Resultat(String[] line) {
@@ -41,8 +51,11 @@ public class Resultat {
         setProminencePoint(line[10]);
         setCaption(line[11]);
 
-
-        setImage1(new Image("ch/fhnw/oop/mountainpictures/" + getBergId() + "-1.jpg"));
+        try {
+            setImage1(new Image("ch/fhnw/oop/mountainpictures/" + getBergId() + "-1.jpg"));
+        }catch (IllegalArgumentException e){
+            setImage1(new Image("ch/fhnw/oop/mountainpictures/noimage.png"));
+        }
 
     }
 

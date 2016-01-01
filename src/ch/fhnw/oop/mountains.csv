@@ -1,14 +1,14 @@
 #id;name;height;type;region;cantons;range;isolation;isolationPoint;prominence;prominencePoint;caption
-0;Albis, Bürglen;916.0;Hauptgipfel;Mittelland;BS;Albiskette;12.0;Wilerberg;376.0;Sihlbrugg Punkt 540;Albiskette vom Uetliberg;
-1;Aletschhorn;4193.0;Hauptgipfel;Wallis;BL;Aletschgebiet;13.3;Finsteraarhorn;1020.0;Lötschenlücke;Aletschhorn von Süden;
-2;Allalinhorn;4027.0;Nebengipfel;Walliser Alpen;GL;;2.1;Rimpfischhorn;255.0;Alphubeljoch;Allalinhorn von Nordost;
-3;Alperschällihorn;3036.0;Hauptgipfel;Adula-Alpen;;Splügener Kalkberge;4.9;Bruschghorn;425.0;Alperschällilücke;Alperschällihorn von Osten;
-4;Alphubel;4206.0;Hauptgipfel;Wallis;;Mischabel-Gruppe;2.1;Täschhorn;359.0;Mischabeljoch;Alphubel vom Allalinhorn;
-5;Altels;3629.0;Nebengipfel;Berner Alpen;;Balmhorngruppe;1.27;Balmhorn;101.0;Punkt 3528 E zum Balmhorn;Altels;
-6;Altenalptürm;2033.0;Nebengipfel;Ostschweiz;;Alpstein;0.43;Hängeten;133.0;Lötzlialpsattel;Altenalp Türm von Westen;
-7;Altmann;2436.0;Hauptgipfel;Ostschweiz;;Alpstein;2.45;Säntis;315.0;Rotsteinpass;über dem Seealpsee, Altmann links;
-8;Alvier;2343.0;Nebengipfel;Ostschweiz;;Alvierkette;2.62;Gross-Fulfirst;243.0;Punkt 2100;Alvier 2ter von rechts;
-9;Aubrig;1695.0;Hauptgipfel;Schwyz;;Schwyzer Alpen;6.28;Fluebrig;327.0;Fläschlihöchi;Aubrig;
+0;Albis, Bürglen;916.0;Hauptgipfel;Mittelland;ZH;Albiskette;12.0;Wilerberg;376.0;Sihlbrugg Punkt 540;Albiskette vom Uetliberg;
+1;Aletschhorn;4193.0;Hauptgipfel;Wallis;VS;Aletschgebiet;13.3;Finsteraarhorn;1020.0;Lötschenlücke;Aletschhorn von Süden;
+2;Allalinhorn;4027.0;Nebengipfel;Walliser Alpen;VS;;2.1;Rimpfischhorn;255.0;Alphubeljoch;Allalinhorn von Nordost;
+3;Alperschällihorn;3036.0;Hauptgipfel;Adula-Alpen;GR;Splügener Kalkberge;4.9;Bruschghorn;425.0;Alperschällilücke;Alperschällihorn von Osten;
+4;Alphubel;4206.0;Hauptgipfel;Wallis;VS;Mischabel-Gruppe;2.1;Täschhorn;359.0;Mischabeljoch;Alphubel vom Allalinhorn;
+5;Altels;3629.0;Nebengipfel;Berner Alpen;BE;Balmhorngruppe;1.27;Balmhorn;101.0;Punkt 3528 E zum Balmhorn;Altels;
+6;Altenalptürm;2033.0;Nebengipfel;Ostschweiz;AI;Alpstein;0.43;Hängeten;133.0;Lötzlialpsattel;Altenalp Türm von Westen;
+7;Altmann;2436.0;Hauptgipfel;Ostschweiz;SG;Alpstein;2.45;Säntis;315.0;Rotsteinpass;über dem Seealpsee, Altmann links;
+8;Alvier;2343.0;Nebengipfel;Ostschweiz;SG;Alvierkette;2.62;Gross-Fulfirst;243.0;Punkt 2100;Alvier 2ter von rechts;
+9;Aubrig;1695.0;Hauptgipfel;Schwyz;SZ;Schwyzer Alpen;6.28;Fluebrig;327.0;Fläschlihöchi;Aubrig;
 10;Bächenstock;2944.0;Nebengipfel;Urner Alpen;;Diederberge;0.6;Rienzenstock;53.0;Punkt 2891;Bächenstock von der Fellilücke;
 11;Bachtel;1115.0;Hauptgipfel;Mittelland;;Zürcher Oberland;4.7;Dürrspitz;358.0;Gibswil;Bachtel vom Pfäffikersee;
 12;Badus;2928.0;Hauptgipfel;Graubünden/Uri;;Gotthardmassiv;5.05;Piz Ravetsch;529.0;Pass Tagliola /Lolenpass;Badus/Six Madun;

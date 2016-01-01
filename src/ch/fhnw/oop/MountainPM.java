@@ -67,9 +67,10 @@ public class MountainPM {
         undoDisabled.bind(Bindings.isEmpty(undoStack));
         redoDisabled.bind(Bindings.isEmpty(redoStack));
 
-        selectedMountainId.addListener((observable, oldValue, newValue) -> {
-                    Resultat oldSelection = resultatInt((int) oldValue);
-                    Resultat newSelection = resultatInt((int) newValue);
+        //selectedMountainId.addListener((observable, oldValue, newValue) -> {
+        selectedMountain.addListener((observable, oldSelection, newSelection) -> {
+                    //Resultat oldSelection = resultatInt((int) oldValue);
+                    //Resultat newSelection = resultatInt((int) newValue);
 
                     if (oldSelection != null) {
                         unbindFromProxy(oldSelection);
@@ -83,10 +84,12 @@ public class MountainPM {
                 }
 
         );
-        setSelectedMountainId(0);
+        //setSelectedMountainId(0);
+        this.setSelectedMountain(resulate.get(0));
+
 
         // selection changes are undoable
-        // selectedMountainIdProperty().addListener(propertyChangeListenerForUndoSupport);
+        selectedMountainProperty().addListener(propertyChangeListenerForUndoSupport);
     }
 
     public void undo() {
@@ -151,7 +154,7 @@ public class MountainPM {
 
 
 
-    //neue Liste f�r Suche
+    //neue Liste für Suche
 
     FilteredList<Resultat> filteredData = new FilteredList<>(getResulate(), p -> true);
 

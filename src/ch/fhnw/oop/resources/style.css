@@ -1,4 +1,40 @@
+.root{
+    -fx-font-size: 16pt;
+    -fx-font-family: "Eras Light ITC";
+    -fx-base: rgb(199, 230, 240);
+    -fx-background: rgb(161, 212, 230);
+}
+
 .label{
     -fx-min-width: 80px;
     -fx-max-width: 100px;
+}
+
+.button {
+    -fx-background-color: #D5DADB;
+}
+
+#save {
+    -fx-background-color: #D5AADB;
+}
+
+#add {
+    -fx-background-color: #D5AADB;
+}
+
+#delete {
+    -fx-background-color: #D5AADB;
+}
+
+#undo {
+    -fx-background-color: #D5AADB;
+}
+
+#redo {
+    -fx-background-color: #D5AADD;
+}
+
+#maps {
+    -fx-background-color: #D5AADB;
+    -fx-padding: 0px;
 }

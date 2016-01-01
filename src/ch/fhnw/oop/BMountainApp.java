@@ -28,7 +28,7 @@ public class BMountainApp extends Application {
         primaryStage.setMinWidth(1000);
 
         primaryStage.setHeight(800);
-        primaryStage.setWidth(1000);
+        primaryStage.setWidth(1350);
 
         primaryStage.show();
     }
