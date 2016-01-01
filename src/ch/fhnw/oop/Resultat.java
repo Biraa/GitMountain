@@ -19,7 +19,7 @@ public class Resultat {
     private final DoubleProperty prominence = new SimpleDoubleProperty();
     private final StringProperty prominencePoint = new SimpleStringProperty();
     private final StringProperty caption = new SimpleStringProperty();
-    private final StringProperty fotos = new SimpleStringProperty();
+    //private final StringProperty fotos = new SimpleStringProperty();
 
     private final ObjectProperty<Image> image1 = new SimpleObjectProperty<>();
 
@@ -31,8 +31,8 @@ public class Resultat {
         setRange("");
         setIsolationPoint("");
         setProminencePoint("");
-        setCaption("");
-        setFotos("");
+        setCaption(" ");
+        //setFotos("");
 
 
     }
@@ -92,8 +92,8 @@ public class Resultat {
                 getIsolationPoint(),
                 Double.toString(getProminence()),
                 getProminencePoint(),
-                getCaption(),
-                getFotos()
+                getCaption()//,
+                //getFotos()
         );
     }
 
@@ -250,17 +250,17 @@ public class Resultat {
         this.caption.set(caption);
     }
 
-    public String getFotos() {
-        return fotos.get();
-    }
-
-    public StringProperty fotosProperty() {
-        return fotos;
-    }
-
-    public void setFotos(String fotos) {
-        this.fotos.set(fotos);
-    }
+//    public String getFotos() {
+//        return fotos.get();
+//    }
+//
+//    public StringProperty fotosProperty() {
+//        return fotos;
+//    }
+//
+//    public void setFotos(String fotos) {
+//        this.fotos.set(fotos);
+//    }
 
     public Image getImage1() {
         return image1.get();
