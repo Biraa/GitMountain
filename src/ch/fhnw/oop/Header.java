@@ -1,4 +1,5 @@
 package ch.fhnw.oop;
+
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 
@@ -37,7 +38,6 @@ public class Header extends GridPane {
     Image icon6;
 
 
-
     private TextField textField1;
 
 
@@ -53,31 +53,31 @@ public class Header extends GridPane {
     private void initializeControls() {
         icon1 = new Image("ch/fhnw/oop/icons/save.png");
         ImageView imageView1 = new ImageView(icon1);
-        button1 = new Button("",imageView1);
+        button1 = new Button("", imageView1);
         button1.setId("save");
         button1.setTooltip(new Tooltip("save"));
 
         icon2 = new Image("ch/fhnw/oop/icons/add.png");
         ImageView imageView2 = new ImageView(icon2);
-        button2 = new Button("",imageView2);
+        button2 = new Button("", imageView2);
         button2.setId("add");
         button2.setTooltip(new Tooltip("add"));
 
         icon3 = new Image("ch/fhnw/oop/icons/delete.png");
         ImageView imageView3 = new ImageView(icon3);
-        button3 = new Button("",imageView3);
+        button3 = new Button("", imageView3);
         button3.setId("delete");
         button3.setTooltip(new Tooltip("delete"));
 
         icon4 = new Image("ch/fhnw/oop/icons/undo.png");
         ImageView imageView4 = new ImageView(icon4);
-        button4 = new Button("",imageView4);
+        button4 = new Button("", imageView4);
         button4.setId("undo");
         button4.setTooltip(new Tooltip("undo"));
 
         icon5 = new Image("ch/fhnw/oop/icons/redo.png");
         ImageView imageView5 = new ImageView(icon5);
-        button5 = new Button("",imageView5);
+        button5 = new Button("", imageView5);
         button5.setId("redo");
         button5.setTooltip(new Tooltip("redo"));
 
@@ -85,7 +85,7 @@ public class Header extends GridPane {
         ImageView imageView6 = new ImageView(icon6);
         imageView6.setFitHeight(48);
         imageView6.setFitWidth(53);
-        button6 = new Button("",imageView6);
+        button6 = new Button("", imageView6);
         button6.setId("maps");
         button6.setTooltip(new Tooltip("Google Maps"));
 
@@ -94,14 +94,13 @@ public class Header extends GridPane {
 
     }
 
-    private void initializeFilter(){
+    private void initializeFilter() {
 
         textField1.textProperty().addListener((observable, oldValue, newValue) -> {
             model.setFilterString(newValue);
         });
 
     }
-
 
 
     public void makeColumRow() {
@@ -138,17 +137,19 @@ public class Header extends GridPane {
         button1.setOnAction(event -> model.save());
         button3.setOnAction(event -> model.delete());
         button2.setOnAction(event -> model.add());
+
         //UndoRedo
         button4.setOnAction(event -> model.undo());
         button5.setOnAction(event -> model.redo());
+
         //Google Maps
-        button6.setOnAction(e -> {
+        button6.setOnAction(event -> {
 
             String name = model.getSelectedMountain().getName();
 
             final WebView browser = new WebView();
             final WebEngine webEngine = browser.getEngine();
-            webEngine.load("https://www.google.ch/maps/search/"+name);
+            webEngine.load("https://www.google.ch/maps/search/" + name);
 
             StackPane secondaryLayout = new StackPane();
             secondaryLayout.getChildren().add(browser);

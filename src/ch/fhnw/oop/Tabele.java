@@ -16,16 +16,10 @@ public class Tabele extends TableView<Resultat> {
 
         makeTableView();
         select();
-        //setPrefWidth(500);
     }
 
 
     private void makeTableView() {
-
-        //setItems(model.getResulate());
-
-        //setItems(model.getFilteredData());
-
 
         //TableView<Resultat> tableView = new TableView<>(model.getResulate()); ES IST REDUNDANT WEIL TABELE VOM TABLEVIEW ERBT!!!
 
@@ -55,48 +49,14 @@ public class Tabele extends TableView<Resultat> {
 
         setItems(sortedList);
 
-  }
-
-
-//    public void select2(){
-//        model.selectedMountainProperty().addListener(
-//                (observable, oldSelection, newSelection) -> selectionModelProperty().setValue());
-//    }
+    }
 
 
     public void select() {
         getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldSelection, newSelection) -> model.setSelectedMountain(newSelection));
 
-
-//        getSelectionModel().selectedItemProperty().addListener(
-//                (observable, oldSelection, newSelection) -> {
-//                    try {
-//                        model.setSelectedMountainId(newSelection.getBergId());
-//                    } catch (NullPointerException e) {
-//
-//                    }
-//                });
     }
-
-//    public void select() {
-//        getSelectionModel().selectedItemProperty().addListener(
-//                (observable, oldSelection, newSelection) -> model.setSelectedMountain(newSelection));
-//
-//
-//        getSelectionModel().selectedItemProperty().addListener(
-//                (observable, oldSelection, newSelection) -> {
-//                    if (newSelection == null) {
-//                        model.setSelectedMountainId(1);
-//                    } else {
-//                        model.setSelectedMountainId(newSelection.getBergId());
-//                    }
-//                }
-//        );
-//    }
-
-
-
 
     @Override
     public void scrollTo(Resultat object) {

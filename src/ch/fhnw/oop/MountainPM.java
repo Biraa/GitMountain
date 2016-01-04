@@ -30,7 +30,6 @@ public class MountainPM {
     private static final String TAB = ";";
 
 
-
     private final ObservableList<Resultat> resulate = FXCollections.observableArrayList();
 
     int i;
@@ -42,7 +41,6 @@ public class MountainPM {
     private final ObservableList<Command> undoStack = FXCollections.observableArrayList();
     private final ObservableList<Command> redoStack = FXCollections.observableArrayList();
 
-    //private final IntegerProperty selectedMountainId = new SimpleIntegerProperty(-1);
     private final IntegerProperty selectedMountainId = new SimpleIntegerProperty(-1);
 
     private final BooleanProperty undoDisabled = new SimpleBooleanProperty();
@@ -56,21 +54,17 @@ public class MountainPM {
     };
 
 
-
     public MountainPM() {
-        //resulate.addAll(resultatList);
+
         resulate.addAll(readFromFile());
 
-        i =resulate.size();
-        k =resulate.size();
+        i = resulate.size();
+        k = resulate.size();
 
         undoDisabled.bind(Bindings.isEmpty(undoStack));
         redoDisabled.bind(Bindings.isEmpty(redoStack));
 
-        //selectedMountainId.addListener((observable, oldValue, newValue) -> {
         selectedMountain.addListener((observable, oldSelection, newSelection) -> {
-                    //Resultat oldSelection = resultatInt((int) oldValue);
-                    //Resultat newSelection = resultatInt((int) newValue);
 
                     if (oldSelection != null) {
                         unbindFromProxy(oldSelection);
@@ -84,7 +78,7 @@ public class MountainPM {
                 }
 
         );
-        //setSelectedMountainId(0);
+
         this.setSelectedMountain(resulate.get(0));
 
 
@@ -115,7 +109,7 @@ public class MountainPM {
     }
 
 
-    public <T> void setPropertyValueWithoutUndoSupport(Property<T> property, T newValue){
+    public <T> void setPropertyValueWithoutUndoSupport(Property<T> property, T newValue) {
         property.removeListener(propertyChangeListenerForUndoSupport);
         property.setValue(newValue);
         property.addListener(propertyChangeListenerForUndoSupport);
@@ -153,16 +147,10 @@ public class MountainPM {
     }
 
 
-
     //neue Liste für Suche
 
     FilteredList<Resultat> filteredData = new FilteredList<>(getResulate(), p -> true);
 
-
-//    public MountainPM() {
-//        resulate.addAll(readFromFile());
-//
-//    }
 
     private List<Resultat> readFromFile() {
         try (Stream<String> stream = getStreamOfLines(FILE_NAME)) {

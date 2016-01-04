@@ -53,7 +53,7 @@ public class Resultat {
 
         try {
             setImage1(new Image("ch/fhnw/oop/mountainpictures/" + getBergId() + "-1.jpg"));
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             setImage1(new Image("ch/fhnw/oop/mountainpictures/noimage.png"));
         }
 

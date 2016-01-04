@@ -13,13 +13,13 @@ import java.util.Map;
 /**
  * Created by Biraveen on 03.12.2015.
  */
-public class TabelCell  extends TableCell<Resultat,String> {
+public class TabelCell extends TableCell<Resultat, String> {
     private static final Map<String, Image> WAPPEN = new HashMap<>();
 
     private static final Insets INSETS = new Insets(1, 8, 1, 5);
 
     @Override
-    protected void updateItem(String item, boolean empty){
+    protected void updateItem(String item, boolean empty) {
         setText("");
         setGraphic(null);
 
@@ -30,8 +30,8 @@ public class TabelCell  extends TableCell<Resultat,String> {
                     img = new Image(getClass().getResource("wappen_klein/" + item + ".png")
                             .toExternalForm(), 18, 18, true, true, true);
                     WAPPEN.put(item, img);
-                } catch (NullPointerException e){
-                    img = new Image(getClass().getResource("wappen_klein/" + "noPicture"+ ".jpg")
+                } catch (NullPointerException e) {
+                    img = new Image(getClass().getResource("wappen_klein/" + "noPicture" + ".jpg")
                             .toExternalForm(), 18, 18, true, true, true);
                     WAPPEN.put("noPicture", img);
                 }

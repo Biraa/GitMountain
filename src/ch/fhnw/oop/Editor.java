@@ -3,7 +3,6 @@ package ch.fhnw.oop;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -175,47 +174,16 @@ public class Editor extends GridPane {
         add(textField11, 3, 9);
         add(textField12, 3, 10);
 
-        //add(addImageView(), 3, 0);
         add(imageView1, 3, 0);
 
         setPadding(new Insets(10, 10, 10, 10));
     }
 
-    public void makeRightImageSize(){
+    public void makeRightImageSize() {
         imageView1.setFitHeight(300);
         imageView1.setFitWidth(300);
         imageView1.isSmooth();
 
     }
-    public ImageView addImageView() {
-        int id;
-        try {
-            id = model.selectedMountainProperty().getValue().getBergId();
-        }catch (NullPointerException e){
-            id=1;
-        }
-        Image image = new Image("ch/fhnw/oop/mountainpictures/"+id+"-1.jpg");
-        ImageView imageView = new ImageView(image);
-        imageView.setFitWidth(220);
-        //imageView.setFitHeight(220);
-        imageView.setPreserveRatio(true);
-        //imageView.setCache(true);
-
-        return imageView;
-    }
-
-//    public ImageView addImageView(MountainPM model) {
-//        //String foto = model.;
-//        Image image = new Image("ch/fhnw/oop/resources/bmw.jpg");
-//        ImageView imageView = new ImageView(image);
-//        imageView.setFitWidth(220);
-//        //imageView.setFitHeight(220);
-//        imageView.setPreserveRatio(true);
-//        //imageView.setCache(true);
-//
-//        return imageView;
-//    }
-
-
 
 }
