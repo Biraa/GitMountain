@@ -33,6 +33,7 @@ public class Resultat {
         setProminencePoint("");
         setCaption(" ");
         //setFotos("");
+        setImage1(new Image("ch/fhnw/oop/mountainpictures/noimage.png"));
 
 
     }
