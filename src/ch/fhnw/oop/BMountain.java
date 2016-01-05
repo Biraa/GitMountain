@@ -5,6 +5,7 @@ package ch.fhnw.oop;
  */
 
 // Only a test class
+    //neuer Komentar
 public class BMountain {
 }
 
