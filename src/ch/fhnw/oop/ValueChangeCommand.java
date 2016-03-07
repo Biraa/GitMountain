@@ -2,9 +2,7 @@ package ch.fhnw.oop;
 
 import javafx.beans.property.Property;
 
-/**
- * @author Dieter Holz
- */
+
 public class ValueChangeCommand<T> implements Command {
 	private final MountainPM mountainPM;
 	private final Property<T> property;

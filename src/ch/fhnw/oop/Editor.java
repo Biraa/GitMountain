@@ -23,7 +23,6 @@ public class Editor extends GridPane {
         addValueChangedListeners();
         makeRightImageSize();
         makeColumRow();
-
     }
 
     private TextField textField2;
